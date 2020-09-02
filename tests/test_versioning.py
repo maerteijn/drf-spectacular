@@ -45,6 +45,12 @@ class NamespaceVersioningViewset(PathVersioningViewset):
     versioning_class = NamespaceVersioning
 
 
+class NamespaceVersioningAPIView(generics.RetrieveUpdateDestroyAPIView):
+    versioning_class = NamespaceVersioning
+    serializer_class = Xv1Serializer
+    queryset = VersioningModel.objects.all()
+
+
 class AcceptHeaderVersioningViewset(PathVersioningViewset):
     versioning_class = AcceptHeaderVersioning
 
@@ -143,6 +149,7 @@ def test_accept_header_versioning(no_warnings, viewset_cls, version):
 
 urlpatterns_namespace = [
     path('x/', NamespaceVersioningViewset.as_view({'get': 'list'})),
+    path('y/<int:pk>/', NamespaceVersioningAPIView.as_view()),
     path('schema/', SpectacularAPIView.as_view(
         versioning_class=NamespaceVersioning
     ), name='schema-nv-versioned'),
