@@ -191,9 +191,9 @@ urlpatterns = [
 
 
 @pytest.mark.parametrize(['url', 'path_count'], [
-    ('/api/nv/v2/schema/', 8),  # v2 nv + v2 pv + v2 ahv + unversioned
-    ('/api/pv/v1/schema/', 8),  # v1 nv + v1 pv + v1 ahv + unversioned
-    ('/api/schema-v2/', 8),  # v2 nv + v2 pv + v2 ahv + unversioned
+    ('/api/nv/v2/schema/', 9),  # v2 nv + v2 pv + v2 ahv + unversioned
+    ('/api/pv/v1/schema/', 9),  # v1 nv + v1 pv + v1 ahv + unversioned
+    ('/api/schema-v2/', 9),  # v2 nv + v2 pv + v2 ahv + unversioned
     ('/api/schema/', 2),  # unversioned schema
 ])
 @pytest.mark.urls(__name__)
